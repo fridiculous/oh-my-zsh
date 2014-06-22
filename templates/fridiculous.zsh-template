@@ -11,6 +11,8 @@ ZSH_THEME="fridiculous"
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
+alias git="hub"
+alias gpr="git pull-request | pbcopy"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
