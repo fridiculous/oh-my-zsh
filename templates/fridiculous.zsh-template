@@ -11,8 +11,6 @@ ZSH_THEME="fridiculous"
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
-alias git="hub"
-alias gpr="git pull-request | pbcopy"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,7 +49,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew pep8 cap celery encode64 fabric jsontools python pip pylint virtualenvwrapper sublime web-search vagrant osx postgres forklift redis-cli cp extract colorize)
+plugins=(git hub github brew pep8 cap celery encode64 fabric jsontools python pip pylint virtualenvwrapper sublime web-search vagrant osx postgres forklift redis-cli cp extract colorize)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -75,3 +73,5 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+alias git="hub"
+alias gpr="git pull-request -m $* | pbcopy"
