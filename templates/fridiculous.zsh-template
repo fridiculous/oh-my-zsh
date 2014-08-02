@@ -84,20 +84,20 @@ alias gpr="git pull-request -m $* | pbcopy"
 function savezsh()
 {
     cp ~/.zshrc $ZSH_TEMPLATE
-    cd $ZSH && git add . && git commit
+    cd $ZSH && git add . && git commit && cd -
 }
 
 function pushzsh()
 {
-    cd $ZSH && git push origin master
+    cd $ZSH && git push origin master && cd -
 }
 
 function loadzsh()
 {
-    cp $ZSH_TEMPLATE ~/.zshrc 
+    cp $ZSH_TEMPLATE ~/.zshrc && cd -
 }
 
 function pullzsh()
 {
-    cd $ZSH && git pull origin master
+    cd $ZSH && git pull origin master && cd -
 }   
