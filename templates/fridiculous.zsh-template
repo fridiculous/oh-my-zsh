@@ -85,6 +85,8 @@ function savezsh()
 {
     cp ~/.zshrc $ZSH_TEMPLATE
     echo "saving $ZSH_TEMPLATE"
+    cp ~/.vimrc $ZSH/vim/.vimrc
+    echo "saving $ZSH/vim/.vimrc"
 }
 
 function pushzsh()
@@ -99,6 +101,8 @@ function loadzsh()
 {
     cp $ZSH_TEMPLATE ~/.zshrc
     echo "loading $ZSH_TEMPLATE"
+    cp $ZSH/vim/.vimrc ~/.vimrc 
+    echo "$ZSH/vim/.vimrc"
 }
 
 function pullzsh()
