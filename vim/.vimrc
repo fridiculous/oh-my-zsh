@@ -1,15 +1,33 @@
 set nocompatible              " be iMproved, required
-set number
-set mouse=a
+filetype off                  " required
+
+" highlight search terms
+set hlsearch
+" Cursorline
+" set cursorline cursorcolumn
+" File encodings
+set fileencodings=utf-8,latin1
+" Convert tab to spaces
+set expandtab
+" Set line numbers
+set nu
+" Syntax always on
+syntax on
+" Keep the same indentation as the previous line
 set autoindent
-set smartindent                                
+" Insert a level of indentation in some file types
+set smartindent
+" Global indent
 set tabstop=4
 set shiftwidth=4
-set smarttab
-set expandtab
-set softtabstop=4
+
+" for any mouse
+set mouse=a
 set spell
-filetype off                  " required
+
+" unknown
+set smarttab
+set softtabstop=4
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle
@@ -24,13 +42,12 @@ Plugin 'gmarik/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
+" https://github.com/spolu/dwm.vim
+" Plugin 'spolu/dwm.vim'
 " https://github.com/wincent/Command-T
 Plugin 'wincent/command-t'
 " https://github.com/scrooloose/nerdtree
 Plugin 'scrooloose/nerdtree'
-" also install
 " https://github.com/altercation/solarized/tree/master/osx-terminal.app-colors-solarized
 " https://github.com/altercation/solarized
 " https://github.com/altercation/vim-colors-solarized
@@ -41,10 +58,16 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
 " https://github.com/mrmargolis/dogmatic.vim
 Plugin 'mrmargolis/dogmatic.vim'
-" https://github.com/spolu/dwm.vim
-Plugin 'spolu/dwm.vim'
+" Plugin 'hynek/vim-python-pep8-indent'
 " https://github.com/hynek/vim-python-pep8-indent
-Plugin 'hynek/vim-python-pep8-indent'
+" https://github.com/klen/python-mode
+" https://github.com/nvie/vim-flake8
+Plugin 'klen/python-mode'
+" https://github.com/kien/ctrlp.vim
+Plugin 'kien/ctrlp.vim'
+" https://github.com/scrooloose/syntastic
+Plugin 'scrooloose/syntastic'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -72,8 +95,24 @@ set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
 
-" https://github.com/nvie/vim-flake8
-Plugin 'nvie/vim-flake8'
+" set filetype = yaml for sls salt files
+au BufNewFile,BufRead *.sls set filetype=yaml
 
 " turn off python indenting
 let g:pymode_indent = 0
+
+" turn off python folding
+let g:pymode_folding = 0
+
+" Map ctrl-movement keys to window switching
+map <C-k> <C-w><Up>
+map <C-j> <C-w><Down>
+map <C-l> <C-w><Right>
+map <C-h> <C-w><Left>
+" Switch to alternate file
+map <C-Tab> :bnext<cr>
+map <C-S-Tab> :bprevious<cr>
+
+" autocmd vimenter * NERDTree 
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
