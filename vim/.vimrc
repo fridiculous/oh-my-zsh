@@ -67,7 +67,12 @@ Plugin 'klen/python-mode'
 Plugin 'kien/ctrlp.vim'
 " https://github.com/scrooloose/syntastic
 Plugin 'scrooloose/syntastic'
-
+" https://github.com/jistr/vim-nerdtree-tabs
+Plugin 'jistr/vim-nerdtree-tabs'
+" https://github.com/Lokaltog/vim-easymotion
+Plugin 'Lokaltog/vim-easymotion'
+" https://github.com/ervandew/supertab
+Plugin 'ervandew/supertab'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -92,7 +97,11 @@ filetype plugin indent on    " required
 " turn on solarized
 syntax enable
 set background=dark
-let g:solarized_termcolors=256
+" to enable, first
+" git clone https://github.com/altercation/solarized
+" cd os-x or iterm and import the dark colors into the text editor
+" otherwise flip on
+" let g:solarized_termcolors=256
 colorscheme solarized
 
 " set filetype = yaml for sls salt files
@@ -102,7 +111,7 @@ au BufNewFile,BufRead *.sls set filetype=yaml
 let g:pymode_indent = 0
 
 " turn off python folding
-let g:pymode_folding = 0
+let g:pymode_folding = 1
 
 " Map ctrl-movement keys to window switching
 map <C-k> <C-w><Up>
