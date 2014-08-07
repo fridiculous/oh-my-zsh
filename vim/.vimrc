@@ -62,7 +62,7 @@ Plugin 'mrmargolis/dogmatic.vim'
 " https://github.com/hynek/vim-python-pep8-indent
 " https://github.com/klen/python-mode
 " https://github.com/nvie/vim-flake8
-Plugin 'klen/python-mode'
+" Plugin 'klen/python-mode'
 " https://github.com/kien/ctrlp.vim
 Plugin 'kien/ctrlp.vim'
 " https://github.com/scrooloose/syntastic
@@ -108,10 +108,15 @@ colorscheme solarized
 au BufNewFile,BufRead *.sls set filetype=yaml
 
 " turn off python indenting
-let g:pymode_indent = 0
+let g:pymode_indent = 1
+
+" turn off python warnings
+let g:pymode_warnings = 0
 
 " turn off python folding
 let g:pymode_folding = 1
+
+map :PEP8<CR> :PymodeLintAuto<CR>
 
 " Map ctrl-movement keys to window switching
 map <C-k> <C-w><Up>
@@ -123,5 +128,6 @@ map <C-Tab> :bnext<cr>
 map <C-S-Tab> :bprevious<cr>
 
 " autocmd vimenter * NERDTree 
-map <C-n> :NERDTreeToggle<CR>
+" map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeTabsToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif

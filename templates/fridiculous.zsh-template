@@ -5,6 +5,11 @@ export PATH=$PATH:"/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 source ~/.bash_profile
 
+alias vim='mvim -v'
+alias lvim='mvim -v -c "normal '\''0"'
+alias lvim1='mvim -v -c "normal '\''1"'
+alias lvim2='mvim -v -c "normal '\''2"'
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -16,8 +21,13 @@ ZSH_THEME="fridiculous"
 # ZSH_THEME="pygmalion"
 # ZSH_THEME="simple"
 
+#TEMPLATEPATH
+export ZSH_TEMPLATE=$HOME/.oh-my-zsh/templates/fridiculous.zsh-template
+#export ZSH_TEMPLATE=$HOME/.oh-my-zsh/templates/pygmalion.zsh-template
+
 # Example aliases
-alias zshconfig="vim ~/.zshrc"
+alias reloadzsh=". ~/.zshrc"
+alias zshconfig="vim ~/.zshrc && reloadzsh"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -116,9 +126,3 @@ function pullzsh()
 }   
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-#TEMPLATEPATH
-export ZSH_TEMPLATE=$HOME/.oh-my-zsh/templates/fridiculous.zsh-template
-#export ZSH_TEMPLATE=$HOME/.oh-my-zsh/templates/pygmalion.zsh-template
-
-
