@@ -2,7 +2,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " highlight search terms
-set hlsearch
+" set hlsearch
 " Cursorline
 " set cursorline cursorcolumn
 " File encodings
@@ -12,7 +12,7 @@ set expandtab
 " Set line numbers
 set nu
 " Syntax always on
-syntax on
+" syntax on
 " Keep the same indentation as the previous line
 set autoindent
 " Insert a level of indentation in some file types
@@ -22,8 +22,10 @@ set tabstop=4
 set shiftwidth=4
 
 " for any mouse
-set mouse=a
-set spell
+" set mouse=a
+" set spell
+
+syntax off
 
 " unknown
 set smarttab
@@ -41,38 +43,36 @@ Plugin 'gmarik/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-fugitive'
 " https://github.com/spolu/dwm.vim
 " Plugin 'spolu/dwm.vim'
-" https://github.com/wincent/Command-T
-Plugin 'wincent/command-t'
 " https://github.com/scrooloose/nerdtree
 Plugin 'scrooloose/nerdtree'
+" https://github.com/jistr/vim-nerdtree-tabs
+" Plugin 'jistr/vim-nerdtree-tabs'
 " https://github.com/altercation/solarized/tree/master/osx-terminal.app-colors-solarized
 " https://github.com/altercation/solarized
 " https://github.com/altercation/vim-colors-solarized
 Plugin 'altercation/vim-colors-solarized'
 " https://github.com/pangloss/vim-javascript
-Plugin 'pangloss/vim-javascript'
+" Plugin 'pangloss/vim-javascript'
 " https://github.com/nathanaelkane/vim-indent-guides
-Plugin 'nathanaelkane/vim-indent-guides'
+" Plugin 'nathanaelkane/vim-indent-guides'
 " https://github.com/mrmargolis/dogmatic.vim
-Plugin 'mrmargolis/dogmatic.vim'
+" Plugin 'mrmargolis/dogmatic.vim'
 " Plugin 'hynek/vim-python-pep8-indent'
 " https://github.com/hynek/vim-python-pep8-indent
 " https://github.com/klen/python-mode
 " https://github.com/nvie/vim-flake8
 " Plugin 'klen/python-mode'
 " https://github.com/kien/ctrlp.vim
-Plugin 'kien/ctrlp.vim'
+" Plugin 'kien/ctrlp.vim'
 " https://github.com/scrooloose/syntastic
-Plugin 'scrooloose/syntastic'
-" https://github.com/jistr/vim-nerdtree-tabs
-Plugin 'jistr/vim-nerdtree-tabs'
+" Plugin 'scrooloose/syntastic'
 " https://github.com/Lokaltog/vim-easymotion
-Plugin 'Lokaltog/vim-easymotion'
+" Plugin 'Lokaltog/vim-easymotion'
 " https://github.com/ervandew/supertab
-Plugin 'ervandew/supertab'
+" Plugin 'ervandew/supertab'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -127,7 +127,22 @@ map <C-h> <C-w><Left>
 map <C-Tab> :bnext<cr>
 map <C-S-Tab> :bprevious<cr>
 
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+vnoremap <leader>p "_dP
+
 " autocmd vimenter * NERDTree 
 " map <C-n> :NERDTreeToggle<CR>
 map <C-n> :NERDTreeTabsToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
